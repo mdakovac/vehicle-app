@@ -1,0 +1,12 @@
+.login-form {
+	margin-top: 5%;
+	max-width: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.warning {
+	color: red;
+	margin-bottom: 3%;
+}
