@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthModule } from './auth/auth.module';
-import { VehicleModule } from './vehicle/vehicle.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { VehicleModule } from './modules/vehicle/vehicle.module';
 
 @NgModule({
 	declarations: [AppComponent],

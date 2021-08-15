@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthRoutingModule } from './auth/auth-routing.module';
-import { VehicleRoutingModule } from './vehicle/vehicle-routing.module';
+import { AuthRoutingModule } from './modules/auth/auth-routing.module';
+import { VehicleRoutingModule } from './modules/vehicle/vehicle-routing.module';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/vehicle', pathMatch: 'full' },
