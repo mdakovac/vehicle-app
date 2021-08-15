@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { TokenStorageService } from '../../services/token-storage.service';
+import { ILoginResponse } from '../../types/ILoginResponse';
 
 @Component({
 	selector: 'app-login',
@@ -14,24 +16,35 @@ export class LoginComponent implements OnInit {
 		password: new FormControl(),
 	});
 
-	error: string = 'Invalid credentials';
+	error: string = '';
 
-	constructor(private authService: AuthService, private router: Router) {}
+	constructor(
+		private authService: AuthService,
+		private tokenStorageService: TokenStorageService,
+		private router: Router
+	) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		if (this.tokenStorageService.getToken()) {
+			this.router.navigate(['/vehicle']);
+		}
+		this.loginForm.valueChanges.subscribe(() => {
+			this.error = '';
+		});
+	}
 
 	onSubmit(): void {
 		this.authService
 			.login(this.loginForm.value.username, this.loginForm.value.password)
 			.subscribe({
-				next: (x) => console.log('Observer got a next value: ' + x),
-				error: (err) => console.error('Observer got an error: ' + err),
-				complete: () =>
-					console.log('Observer got a complete notification'),
+				next: (response: ILoginResponse) => {
+					this.tokenStorageService.saveToken(response.token);
+					this.router.navigate(['/vehicle']);
+				},
+				error: () => {
+					this.loginForm.patchValue({ password: null });
+					this.error = 'Invalid credentials';
+				},
 			});
-	}
-
-	private redirectToVehicleList(): void {
-		this.router.navigate(['/vehicles']);
 	}
 }

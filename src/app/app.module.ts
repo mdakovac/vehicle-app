@@ -5,10 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
-//import { AuthModule } from './auth/auth.module';
-//import { AuthRoutingModule } from './auth/auth-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
+import { VehicleModule } from './vehicle/vehicle.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -19,6 +18,7 @@ import { AuthModule } from './auth/auth.module';
 		AppRoutingModule,
 		MatToolbarModule,
 		AuthModule,
+		VehicleModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],
