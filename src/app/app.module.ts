@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './modules/auth/auth.module';
 import { VehicleModule } from './modules/vehicle/vehicle.module';
+import { httpInterceptorProviders } from './http-interceptors';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -20,7 +21,7 @@ import { VehicleModule } from './modules/vehicle/vehicle.module';
 		AuthModule,
 		VehicleModule,
 	],
-	providers: [],
+	providers: [httpInterceptorProviders],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}
