@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
 	});
 
 	error: string = '';
+	submitting: boolean = false;
 
 	constructor(
 		private authService: AuthService,
@@ -34,6 +35,8 @@ export class LoginComponent implements OnInit {
 	}
 
 	onSubmit(): void {
+		this.submitting = true;
+
 		this.authService
 			.login(this.loginForm.value.username, this.loginForm.value.password)
 			.subscribe({
@@ -44,6 +47,9 @@ export class LoginComponent implements OnInit {
 				error: () => {
 					this.loginForm.patchValue({ password: null });
 					this.error = 'Invalid credentials';
+				},
+				complete: () => {
+					this.submitting = false;
 				},
 			});
 	}
