@@ -9,6 +9,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { VehicleModule } from './modules/vehicle/vehicle.module';
 import { httpInterceptorProviders } from './http-interceptors';
 import { MaterialModule } from './modules/material/material.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { MaterialModule } from './modules/material/material.module';
 		MaterialModule,
 		AuthModule,
 		VehicleModule,
+		SharedModule,
 	],
 	providers: [httpInterceptorProviders],
 	bootstrap: [AppComponent],
