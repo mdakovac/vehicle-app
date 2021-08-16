@@ -52,6 +52,7 @@ export class VehicleCreateComponent implements OnInit {
 		this.vehicleService.create(make, model, year).subscribe({
 			next: () => {
 				this.snackbarService.success('Resource created successfully.');
+				this.location.back();
 			},
 			error: (err) => {
 				const code: number = err.error.code;
