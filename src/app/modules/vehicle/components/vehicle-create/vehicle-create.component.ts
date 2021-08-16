@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SnackbarService } from 'src/app/modules/shared/services/snackbar.service';
 import { VehicleService } from '../../services/vehicle.service';
 
 @Component({
@@ -30,6 +31,7 @@ export class VehicleCreateComponent implements OnInit {
 
 	constructor(
 		private vehicleService: VehicleService,
+		private snackbarService: SnackbarService,
 		private location: Location
 	) {}
 
@@ -49,7 +51,7 @@ export class VehicleCreateComponent implements OnInit {
 		const { make, model, year } = this.createForm.value;
 		this.vehicleService.create(make, model, year).subscribe({
 			next: () => {
-				console.log('ok');
+				this.snackbarService.success('Resource created successfully.');
 			},
 			error: (err) => {
 				const code: number = err.error.code;
