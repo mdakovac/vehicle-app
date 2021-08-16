@@ -15,3 +15,13 @@ table {
 .filter-input {
 	width: 200px;
 }
+
+.create {
+	padding-top: 3.2%;
+	padding-right: 3%;
+}
+
+.above-table {
+	display: flex;
+	justify-content: space-between;
+}

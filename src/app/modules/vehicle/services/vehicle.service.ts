@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IVehicle } from '../types/IVehicle';
 import { IVehicleFindResponse } from '../types/IVehicleFindResponse';
 
 @Injectable({
@@ -24,6 +25,14 @@ export class VehicleService {
 
 		return this.http.get<IVehicleFindResponse>(this.baseUrl, {
 			params,
+		});
+	}
+
+	create(make: string, model: string, year: number): Observable<IVehicle> {
+		return this.http.post<IVehicle>(this.baseUrl, {
+			make,
+			model,
+			year,
 		});
 	}
 }

@@ -19,7 +19,7 @@ export class VehicleListComponent implements OnInit {
 		total: 0,
 	};
 
-	displayedColumns: string[] = ['make', 'model', 'year'];
+	displayedColumns: string[] = ['make', 'model', 'year', 'delete'];
 
 	filterInputValue: string = this.route.snapshot.queryParams.query;
 

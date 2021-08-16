@@ -1,33 +1,41 @@
 <h1 class="vehicles-title">Vehicles</h1>
 
-<div class="filter">
-	<mat-form-field class="filter-input" appearance="fill">
-		<mat-label>Search</mat-label>
-		<input
-			matInput
-			type="text"
-			[(ngModel)]="filterInputValue"
-			name="query"
-			(keyup.enter)="onFilter()"
-		/>
+<div class="above-table">
+	<div class="filter">
+		<mat-form-field class="filter-input" appearance="fill">
+			<mat-label>Search</mat-label>
+			<input
+				matInput
+				type="text"
+				[(ngModel)]="filterInputValue"
+				name="query"
+				(keyup.enter)="onFilter()"
+			/>
+			<button
+				*ngIf="filterInputValue"
+				matSuffix
+				mat-icon-button
+				aria-label="Clear"
+				(click)="filterInputValue = ''"
+			>
+				<mat-icon>close</mat-icon>
+			</button>
+		</mat-form-field>
 		<button
-			*ngIf="filterInputValue"
-			matSuffix
-			mat-icon-button
-			aria-label="Clear"
-			(click)="filterInputValue = ''"
+			mat-flat-button
+			class="filter-button"
+			color="primary"
+			(click)="onFilter()"
 		>
-			<mat-icon>close</mat-icon>
+			Search
 		</button>
-	</mat-form-field>
-	<button
-		mat-flat-button
-		class="filter-button"
-		color="primary"
-		(click)="onFilter()"
-	>
-		Search
-	</button>
+	</div>
+
+	<div class="create">
+		<a mat-flat-button color="primary" routerLink="/vehicle/create">
+			New
+		</a>
+	</div>
 </div>
 
 <table mat-table [dataSource]="data.items">
@@ -48,6 +56,14 @@
 	<ng-container matColumnDef="year">
 		<th mat-header-cell *matHeaderCellDef>Year</th>
 		<td mat-cell *matCellDef="let element">{{ element.year }}</td>
+	</ng-container>
+	<ng-container matColumnDef="delete">
+		<th mat-header-cell *matHeaderCellDef></th>
+		<td mat-cell *matCellDef="let element">
+			<button mat-icon-button>
+				<mat-icon class="mat-18">delete</mat-icon>
+			</button>
+		</td>
 	</ng-container>
 
 	<!-- <ng-container matColumnDef="details">
