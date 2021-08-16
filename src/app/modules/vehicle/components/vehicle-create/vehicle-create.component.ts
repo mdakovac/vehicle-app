@@ -61,8 +61,6 @@ export class VehicleCreateComponent implements OnInit {
 				} else {
 					this.error = ' Something went wrong.';
 				}
-			},
-			complete: () => {
 				this.submitting = false;
 			},
 		});

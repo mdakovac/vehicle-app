@@ -35,4 +35,8 @@ export class VehicleService {
 			year,
 		});
 	}
+
+	delete(id: string) {
+		return this.http.delete(`${this.baseUrl}/${id}`);
+	}
 }
