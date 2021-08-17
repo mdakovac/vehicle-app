@@ -1,0 +1,27 @@
+table {
+	width: 100%;
+}
+
+.vehicles-title {
+	padding-left: 2%;
+	padding-top: 2%;
+}
+
+.filter {
+	padding-left: 2%;
+	padding-top: 2%;
+}
+
+.filter-input {
+	width: 200px;
+}
+
+.create {
+	padding-top: 3.2%;
+	padding-right: 3%;
+}
+
+.above-table {
+	display: flex;
+	justify-content: space-between;
+}

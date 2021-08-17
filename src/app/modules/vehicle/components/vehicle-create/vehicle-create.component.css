@@ -1,0 +1,22 @@
+.create-form {
+	margin-top: 2%;
+	margin-left: 2%;
+	max-width: 500px;
+	display: flex;
+	justify-content: left;
+	align-items: left;
+}
+
+.create-form button {
+	margin-right: 1%;
+}
+
+.fields {
+	display: flex;
+	flex-direction: column;
+}
+
+.warning {
+	color: red;
+	margin-bottom: 3%;
+}
